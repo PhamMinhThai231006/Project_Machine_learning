@@ -12,7 +12,7 @@ Cài đặt các thư viện cần thiết từ thư mục `tree_decision/`:
 pip install -r requirements.txt
 ```
 
-Mở `decision_tree_regression.ipynb` trong Jupyter hoặc VS Code và chạy lần lượt từ đầu đến cuối. Notebook tạo các biểu đồ tại `figures/eda.png` và `figures/result.png`.
+Mở `decision_tree_regression.ipynb` trong Jupyter hoặc VS Code và chạy lần lượt từ đầu đến cuối. Notebook tạo các biểu đồ tại `figures/eda.png`, `figures/result.png` và `figures/tree.png`.
 
 ## 3. Quy trình mô hình
 
@@ -32,5 +32,6 @@ Tham số tốt nhất là `max_depth=15`, `min_samples_leaf=20`. Bảng dưới
 - Baseline khớp hoàn hảo trên train nhưng chỉ đạt R² = 0.6228 trên test, cho thấy overfitting rõ rệt.
 - Sau khi giới hạn độ sâu và tăng số mẫu tối thiểu ở lá, khoảng cách R² train-test giảm từ khoảng 0.3772 xuống 0.0816; R² test tăng lên 0.7272, còn MAE/RMSE test giảm.
 - `MedInc` (thu nhập trung vị) là đặc trưng quan trọng nhất trong mô hình đã tune, vượt trội so với các đặc trưng còn lại.
-- `MedHouseVal` bị chặn ở mức khoảng 5.0 (100.000 USD), nên mô hình không thể học đầy đủ mức giá thực của các căn nhà có giá trị cao hơn giới hạn này.
+- `MedHouseVal` bị chặn ở mức khoảng 5.0 (500.000 USD), nên mô hình không thể học đầy đủ mức giá thực của các căn nhà có giá trị cao hơn giới hạn này.
 - Biểu đồ phân phối/tương quan và biểu đồ kết quả được lưu lần lượt tại `figures/eda.png` và `figures/result.png`.
+- Hình `figures/tree.png` chỉ minh họa 2 tầng đầu của cây; mô hình thực tế có `max_depth=15` nên sâu hơn nhiều.
